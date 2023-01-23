@@ -13,6 +13,7 @@ function setup() {
   noStroke()
 }
 
+let frame = 0;
 function draw() {
   background(spaceBackground)
 
@@ -43,16 +44,36 @@ function draw() {
     }
   }
 
-  let secondIndex = 60
-  for (let i = 10; i > 0; i--) {
+  let secondIndex = 60;
+  let visibleSecondSquare = (second() % 10) + 1;
+  for (var i = 10; i > 0; i--) {
     for (let j = 6; j > 0; j--) {
       if (secondIndex > second()) {
-        fill("blue")
+        fill('blue');
+        disappearingRects.push({x: j * (10), y: (10-i) * (10) + 150});
       } else {
-        noFill()
+        noFill();
       }
-      rect(j * 10, (10 - i) * 10 + 150, 8, 8)
-      secondIndex--
+      rect(j * (10), (10-i) * (10) + 150, 8, 8);
+      secondIndex--;
     }
   }
+  let visibleSquare = (second() % 6) + 1;
+  for (let i = 1; i <= 6; i++) {
+    if (i === visibleSquare) {
+      fill('blue');} else {
+      noFill();
+    }
+    rect(i * (10), height - 15, 8, 8);
+  }
+  
+   let targetX = (visibleSquare * (10)) + 4;
+  // let targetY = (10-((second() % 10) + 1)) * (10) ;
+  let targetY = 150 
+  
+  stroke('blue');
+
+    line(targetX, height-10, targetX, targetY);
+  noStroke();
+  
 }
