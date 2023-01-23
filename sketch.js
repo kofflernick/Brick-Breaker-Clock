@@ -79,7 +79,7 @@ function draw() {
 
   let startX = shooter * 10 + 4
   let startY = height - 100
-  let endX = shooter * 10 + 4
+  let endX = targetX
   let endY = targetY
 
   let currentX = lerp(startX, endX, frame / 53)
