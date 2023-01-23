@@ -43,7 +43,6 @@ function draw() {
       minuteIndex--
     }
   }
-  console.log(minute())
 
   let secondIndex = 60
   for (let i = 5; i > 0; i--) {
