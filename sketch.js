@@ -13,67 +13,67 @@ function setup() {
   noStroke()
 }
 
-let frame = 0;
+let frame = 0
 function draw() {
   background(spaceBackground)
 
   let hourIndex = 24
-  for (let i = 4; i > 0; i--) {
-    for (let j = 6; j > 0; j--) {
+  for (let i = 2; i > 0; i--) {
+    for (let j = 12; j > 0; j--) {
       if (hourIndex > hour()) {
         fill("yellow")
         disappearingRects.push({ x: j * 10, y: (4 - i) * 10 + 10 })
       } else {
         noFill()
       }
-      rect(j * 10, (4 - i) * 10 + 10, 8, 8)
+      rect(j * 10, (2 - i) * 10 + 10, 8, 8)
       hourIndex--
     }
   }
 
   let minuteIndex = 60
-  for (let i = 10; i > 0; i--) {
-    for (let j = 6; j > 0; j--) {
+  for (let i = 5; i > 0; i--) {
+    for (let j = 12; j > 0; j--) {
       if (minuteIndex > minute()) {
         fill("red")
       } else {
         noFill()
       }
-      rect(j * 10, (10 - i) * 10 + 50, 8, 8)
+      rect(j * 10, (5 - i) * 10 + 30, 8, 8)
       minuteIndex--
     }
   }
 
-  let secondIndex = 60;
-  let visibleSecondSquare = (second() % 10) + 1;
-  for (var i = 10; i > 0; i--) {
-    for (let j = 6; j > 0; j--) {
+  let secondIndex = 60
+  let visibleSecondSquare = (second() % 10) + 1
+  for (var i = 5; i > 0; i--) {
+    for (let j = 12; j > 0; j--) {
       if (secondIndex > second()) {
-        fill('blue');
-        disappearingRects.push({x: j * (10), y: (10-i) * (10) + 150});
+        fill("blue")
+        disappearingRects.push({ x: j * 10, y: (10 - i) * 10 + 150 })
       } else {
-        noFill();
+        noFill()
       }
-      rect(j * (10), (10-i) * (10) + 150, 8, 8);
-      secondIndex--;
+      rect(j * 10, (5 - i) * 10 + 80, 8, 8)
+      secondIndex--
     }
   }
-  let visibleSquare = (second() % 6) + 1;
-  for (let i = 1; i <= 6; i++) {
+  let visibleSquare = (second() % 12) + 1
+  for (let i = 1; i <= 12; i++) {
     if (i === visibleSquare) {
-      fill('blue');} else {
-      noFill();
+      fill("blue")
+    } else {
+      noFill()
     }
-    rect(i * (10), height - 15, 8, 8);
+    rect(i * 10, height - 15, 8, 8)
   }
-  
-   let targetX = (visibleSquare * (10)) + 4;
-  // let targetY = (10-((second() % 10) + 1)) * (10) ;
-  let targetY = 150 
-  
-  stroke('blue');
 
-    line(targetX, height-10, targetX, targetY);
-  noStroke();
-  
+  let targetX = visibleSquare * 10 + 4
+  // let targetY = (10-((second() % 10) + 1)) * (10) ;
+  let targetY = 150
+
+  stroke("blue")
+
+  line(targetX, height - 10, targetX, targetY)
+  noStroke()
 }
