@@ -45,7 +45,6 @@ function draw() {
   }
 
   let secondIndex = 60
-  let visibleSecondSquare = (second() % 10) + 1
   for (var i = 5; i > 0; i--) {
     for (let j = 12; j > 0; j--) {
       if (secondIndex > second()) {
@@ -69,11 +68,25 @@ function draw() {
   }
 
   let targetX = visibleSquare * 10 + 4
-  // let targetY = (10-((second() % 10) + 1)) * (10) ;
   let targetY = 150
 
-  stroke("blue")
+  let startX = visibleSquare * 10 + 4
+  let startY = height - 10
+  let endX = visibleSquare * 10 + 4
+  let endY = targetY
 
-  line(targetX, height - 10, targetX, targetY)
+  let currentX = lerp(startX, endX, frame / 60)
+  let currentY = lerp(startY, endY, frame / 60)
+  let newEndX = lerp(startX, endX, frame / 70)
+  let newEndY = lerp(startY, endY, frame / 70)
+
+  stroke("white")
+  line(currentX, currentY, newEndX, newEndY)
   noStroke()
+
+  if (currentX !== endX || currentY !== endY) {
+    frame++
+  } else {
+    frame = 0
+  }
 }
