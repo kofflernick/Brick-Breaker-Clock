@@ -45,11 +45,10 @@ function draw() {
   }
 
   let secondIndex = 60
-  for (var i = 5; i > 0; i--) {
+  for (let i = 5; i > 0; i--) {
     for (let j = 12; j > 0; j--) {
       if (secondIndex > second()) {
         fill("blue")
-        disappearingRects.push({ x: j * 10, y: (10 - i) * 10 + 150 })
       } else {
         noFill()
       }
@@ -57,28 +56,28 @@ function draw() {
       secondIndex--
     }
   }
-  let visibleSquare = (second() % 12) + 1
+  let shooter = (second() % 12) + 1
   for (let i = 1; i <= 12; i++) {
-    if (i === visibleSquare) {
-      fill("blue")
+    if (i === shooter) {
+      fill("green")
     } else {
       noFill()
     }
     rect(i * 10, height - 15, 8, 8)
   }
 
-  let targetX = visibleSquare * 10 + 4
-  let targetY = 150
+  let targetX = shooter * 10 + 4
+  let targetY = 140 - second()
 
-  let startX = visibleSquare * 10 + 4
+  let startX = shooter * 10 + 4
   let startY = height - 10
-  let endX = visibleSquare * 10 + 4
+  let endX = shooter * 10 + 4
   let endY = targetY
 
-  let currentX = lerp(startX, endX, frame / 60)
-  let currentY = lerp(startY, endY, frame / 60)
-  let newEndX = lerp(startX, endX, frame / 70)
-  let newEndY = lerp(startY, endY, frame / 70)
+  let currentX = lerp(startX, endX, frame / 53)
+  let currentY = lerp(startY, endY, frame / 53)
+  let newEndX = lerp(startX, endX, frame / 55)
+  let newEndY = lerp(startY, endY, frame / 55)
 
   stroke("white")
   line(currentX, currentY, newEndX, newEndY)
