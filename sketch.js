@@ -59,11 +59,19 @@ function draw() {
   let shooter = (second() % 12) + 1
   for (let i = 1; i <= 12; i++) {
     if (i === shooter) {
-      fill("green")
+      fill("white")
     } else {
       noFill()
     }
     rect(i * 10, height - 100, 8, 8)
+    triangle(
+      i * 10,
+      height - 100,
+      i * 10 + 8,
+      height - 100,
+      i * 10 + 4,
+      height - 100 - 8 / 2
+    )
   }
 
   let targetX = shooter * 10 + 4
