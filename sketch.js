@@ -70,7 +70,7 @@ function draw() {
   let targetY = 210 - second()
 
   let startX = shooter * 10 + 4
-  let startY = height - 50
+  let startY = height - 100
   let endX = shooter * 10 + 4
   let endY = targetY
 
