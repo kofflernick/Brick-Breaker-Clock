@@ -15,6 +15,7 @@ function setup() {
 
 let frame = 0
 function draw() {
+  translate(330, 0)
   background(spaceBackground)
 
   let hourIndex = 24
@@ -22,11 +23,10 @@ function draw() {
     for (let j = 12; j > 0; j--) {
       if (hourIndex > hour()) {
         fill("yellow")
-        disappearingRects.push({ x: j * 10, y: (4 - i) * 10 + 10 })
       } else {
         noFill()
       }
-      rect(j * 10, (2 - i) * 10 + 10, 8, 8)
+      rect(j * 10, (2 - i) * 10 + 80, 8, 8)
       hourIndex--
     }
   }
@@ -39,7 +39,7 @@ function draw() {
       } else {
         noFill()
       }
-      rect(j * 10, (5 - i) * 10 + 30, 8, 8)
+      rect(j * 10, (5 - i) * 10 + 100, 8, 8)
       minuteIndex--
     }
   }
@@ -52,7 +52,7 @@ function draw() {
       } else {
         noFill()
       }
-      rect(j * 10, (5 - i) * 10 + 80, 8, 8)
+      rect(j * 10, (5 - i) * 10 + 150, 8, 8)
       secondIndex--
     }
   }
@@ -63,14 +63,14 @@ function draw() {
     } else {
       noFill()
     }
-    rect(i * 10, height - 15, 8, 8)
+    rect(i * 10, height - 100, 8, 8)
   }
 
   let targetX = shooter * 10 + 4
-  let targetY = 140 - second()
+  let targetY = 210 - second()
 
   let startX = shooter * 10 + 4
-  let startY = height - 10
+  let startY = height - 50
   let endX = shooter * 10 + 4
   let endY = targetY
 
