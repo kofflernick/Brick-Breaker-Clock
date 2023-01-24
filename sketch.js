@@ -82,10 +82,10 @@ function draw() {
   let endX = targetX
   let endY = targetY
 
-  let currentX = lerp(startX, endX, frame / 53)
-  let currentY = lerp(startY, endY, frame / 53)
-  let newEndX = lerp(startX, endX, frame / 55)
-  let newEndY = lerp(startY, endY, frame / 55)
+  let currentX = lerp(startX, endX, frame / 10)
+  let currentY = lerp(startY, endY, frame / 10)
+  let newEndX = lerp(startX, endX, frame / 12)
+  let newEndY = lerp(startY, endY, frame / 12)
 
   stroke("white")
   line(currentX, currentY, newEndX, newEndY)
